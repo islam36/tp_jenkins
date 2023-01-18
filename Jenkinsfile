@@ -39,6 +39,12 @@ pipeline {
                 waitForQualityGate abortPipeline: true
             }
     }
+    
+    stage('build') {
+        steps {
+          bat 'gradlew build'
+        }
+    }
   }
 
 }
