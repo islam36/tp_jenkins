@@ -24,6 +24,12 @@ pipeline {
         }
       }
     }
+    
+    stage('Code analysis') {
+         withSonarQubeEnv() { 
+            bat 'gradlew sonarqube'
+         }
+    }
   }
 
 }
