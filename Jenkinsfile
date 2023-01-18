@@ -44,6 +44,12 @@ pipeline {
         steps {
           bat 'gradlew build'
         }
+      
+        post {
+          success {
+            bat 'gradlew javadoc'
+          }
+        }
     }
   }
 
