@@ -8,7 +8,7 @@ pipeline {
       
       post {
         always {
-            archiveArtifacts artifacts: 'build/reports/test/**/*' //'**/*.jar', fingerprint: true
+            archiveArtifacts artifacts: '**/*.jar', fingerprint: true
             junit '**/*.xml'
           
             cucumber buildStatus: 'UNSTABLE',
@@ -48,7 +48,7 @@ pipeline {
         post {
           success {
             bat 'gradlew javadoc'
-            archiveArtifacts artifacts:  'build/libs/*.jar,  build/docs/**/*', fingerprint: true
+            archiveArtifacts artifacts:  'build/libs/*.jar,  build/docs/*', fingerprint: true
           }
         }
     }
