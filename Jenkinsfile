@@ -12,8 +12,8 @@ pipeline {
             junit '**/*.xml'
           
             cucumber buildStatus: 'UNSTABLE',
-                reportTitle: 'My report',
-                fileIncludePattern: '**/*.json',
+                reportTitle: 'cucumber_report',
+                fileIncludePattern: 'target/report.json',
                 trendsLimit: 10,
                 classifications: [
                     [
