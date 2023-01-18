@@ -48,6 +48,7 @@ pipeline {
         post {
           success {
             bat 'gradlew javadoc'
+            archiveArtifacts artifacts:  ['build/libs/*.jar', 'build/docs/*'], fingerprint: true
           }
         }
     }
