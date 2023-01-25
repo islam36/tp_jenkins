@@ -62,7 +62,7 @@ pipeline {
     
     stage('notification') {
            steps {
-              emailextbody: "build success", subject: "jenkins build"
+              emailextbody: 'build success', subject: "jenkins build"
            }
     }
   }
