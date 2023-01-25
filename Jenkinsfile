@@ -62,7 +62,9 @@ pipeline {
     
     stage('notification') {
            steps {
-              emailext body: 'build success', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'build notification'
+              emailext body: 'Test Message',
+                              subject: 'Test Subject',
+                              to: 'test@example.com'
            }
       
     }
