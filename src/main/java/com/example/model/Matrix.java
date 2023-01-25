@@ -41,9 +41,6 @@ public class Matrix {
 		this.ncols = ncols;
 	}
 
-	public double[][] getValues() {
-		return data;
-	}
 
 	public void setValues(double[][] values) {
 		this.data = values;
