@@ -100,4 +100,16 @@ public class Matrix {
 
 	}
 
+	@Override
+	public int hashCode() {
+		int hash = 0;
+		for(int i = 0; i < this.nrows; i++) {
+			for(int j = 0; j < this.ncols; j++) {
+				hash += this.getValueAt(i,j);
+			}
+		}
+
+		return hash;
+	}
+
 }
