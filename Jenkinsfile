@@ -62,6 +62,7 @@ pipeline {
     
     stage('notification') {
            steps {
+             
               emailext body: 'build success',
                               subject: 'New build notification',
                               to: 'jm_boumendjel@esi.dz'
