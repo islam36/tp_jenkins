@@ -22,6 +22,10 @@ pipeline {
                     ]
                 ]
         }
+        
+        failure {
+          notifyEvents message: 'Test failed', token: 'oAl8FaYR4mfbgMb8G-LgjlK064gSemXF'
+        }
       }
     }
     
@@ -31,6 +35,12 @@ pipeline {
                 bat 'gradlew sonarqube'
               }
         }
+      
+      post {
+          failure {
+            notifyEvents message: 'code analysis failed', token: 'oAl8FaYR4mfbgMb8G-LgjlK064gSemXF'
+          }
+      }
          
     }
     
@@ -38,6 +48,12 @@ pipeline {
             steps {
                 waitForQualityGate abortPipeline: true
             }
+      
+      post {
+            failure {
+            notifyEvents message: 'quality gate failed', token: 'oAl8FaYR4mfbgMb8G-LgjlK064gSemXF'
+            }
+      }
     }
     
     stage('build') {
@@ -50,6 +66,10 @@ pipeline {
             bat 'gradlew javadoc'
             archiveArtifacts artifacts:  'build/libs/*.jar,  build/docs/**/*.*', fingerprint: true
           }
+          
+          failure {
+            notifyEvents message: 'build failed', token: 'oAl8FaYR4mfbgMb8G-LgjlK064gSemXF'
+          }
         }
     }
     
@@ -58,6 +78,12 @@ pipeline {
         steps {
             bat 'gradlew publish'
         }
+      
+      post {
+          failure {
+            notifyEvents message: 'deploy failed', token: 'oAl8FaYR4mfbgMb8G-LgjlK064gSemXF'
+          }
+      }
     }
     
     stage('notification') {
