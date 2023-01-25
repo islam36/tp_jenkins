@@ -59,6 +59,12 @@ pipeline {
             bat 'gradlew publish'
         }
     }
+    
+    stage('notification') {
+           steps {
+              emailextbody: "build success", subject: "jenkins build"
+           }
+    }
   }
 
 }
