@@ -93,7 +93,8 @@ pipeline {
                               to: 'jm_boumendjel@esi.dz'
              notifyEvents message: 'build success', token: 'oAl8FaYR4mfbgMb8G-LgjlK064gSemXF'
              
-           }      
+           }
+      
     }
   }
 
